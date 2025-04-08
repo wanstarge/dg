@@ -1,2 +1,0 @@
-url             : "https://wanstarge.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl         : "/dg" # If you want to install this jekyll in a subpath (eg /digitalgarden) set it here. Else keep it Empty (DON'T PUT /; Keep it empty)
