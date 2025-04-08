@@ -13,14 +13,14 @@
 <script src="https://fastly.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js" async></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" async>
 <script src="https://fastly.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" async></script>
-<link href="/styles/digital-garden-base.css" rel="stylesheet">
-<link href="/styles/obsidian-base.css" rel="stylesheet">
-<link href="/styles/_theme.d92311c2.css" rel="stylesheet">
-<link href="/styles/custom-style.css" rel="stylesheet">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="manifest" href="/manifest.webmanifest">
+<link href="/dg/styles/digital-garden-base.css" rel="stylesheet">
+<link href="/dg/styles/obsidian-base.css" rel="stylesheet">
+<link href="/dg/styles/_theme.d92311c2.css" rel="stylesheet">
+<link href="/dg/styles/custom-style.css" rel="stylesheet">
+<link rel="icon" href="/dg/favicon.ico" sizes="any">
+<link rel="icon" href="/dg/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/dg/apple-touch-icon.png">
+<link rel="manifest" href="/dg/manifest.webmanifest">
 <style>body.css-settings-manager{--indicator-bar-position:0em;--floating-toc-position:-13px;--font-text-theme:'JetBrainsMonoNL Nerd Font Mono',Bookerly,'Inter','Segoe UI','霞鹜文楷 GB','LXGW WenKai','Segoe UI Emoji',var(--font-interface);--list-spacing-bt:1}</style>
 <style></style>
 </head>
@@ -74,13 +74,15 @@ CTRL + K
 <span class="foldername">PCB</span>
 </div>
 <div x-show="isOpen" style="display:none" class="filelist">
-<div @click.stop class="notelink"><a data-note-icon="" style="text-decoration:none" class="filename" href="/pcb//">晶振 </a>
+<div @click.stop class="notelink"><a data-note-icon="" style="text-decoration:none" class="filename" href="/dg/pcb//">晶振
+</a>
 </div>
 </div>
 </div>
 </div>
 <div x-show="isOpen" style="display:none" class="">
-<div @click.stop class="notelink active-note"><a data-note-icon="" style="text-decoration:none" class="filename" href="/">目录 </a>
+<div @click.stop class="notelink active-note"><a data-note-icon="" style="text-decoration:none" class="filename" href="/dg/">目录
+</a>
 </div>
 </div>
 </div>
@@ -106,7 +108,7 @@ CTRL + K
 </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"></script>
-<script>document.addEventListener("DOMContentLoaded",init,!1),document.addEventListener("DOMContentLoaded",setCorrectShortcut,!1),window.toggleSearch=function(){document.getElementById("globalsearch").classList.contains("active")?document.getElementById("globalsearch").classList.remove("active"):(document.getElementById("globalsearch").classList.add("active"),document.getElementById("term").focus())},window.toggleTagSearch=function(e){console.log(e.textContent);const t=e.textContent;t&&(window.document.getElementById("term").value=t.trim(),window.toggleSearch(),window.search())};const loadingSvg='\n    <svg width="100" height="100" viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" stroke="#fff">\n      <g fill="none" fill-rule="evenodd" transform="translate(1 1)" stroke-width="2">\n          <circle cx="22" cy="22" r="6" stroke-opacity="0">\n              <animate attributeName="r"\n                   begin="1.5s" dur="3s"\n                   values="6;22"\n                   calcMode="linear"\n                   repeatCount="indefinite" />\n              <animate attributeName="stroke-opacity"\n                   begin="1.5s" dur="3s"\n                   values="1;0" calcMode="linear"\n                   repeatCount="indefinite" />\n              <animate attributeName="stroke-width"\n                   begin="1.5s" dur="3s"\n                   values="2;0" calcMode="linear"\n                   repeatCount="indefinite" />\n          </circle>\n          <circle cx="22" cy="22" r="6" stroke-opacity="0">\n              <animate attributeName="r"\n                   begin="3s" dur="3s"\n                   values="6;22"\n                   calcMode="linear"\n                   repeatCount="indefinite" />\n              <animate attributeName="stroke-opacity"\n                   begin="3s" dur="3s"\n                   values="1;0" calcMode="linear"\n                   repeatCount="indefinite" />\n              <animate attributeName="stroke-width"\n                   begin="3s" dur="3s"\n                   values="2;0" calcMode="linear"\n                   repeatCount="indefinite" />\n          </circle>\n          <circle cx="22" cy="22" r="8">\n              <animate attributeName="r"\n                   begin="0s" dur="1.5s"\n                   values="6;1;2;3;4;5;6"\n                   calcMode="linear"\n                   repeatCount="indefinite" />\n          </circle>\n      </g>\n  </svg>';function debounce(e,t,n){var a;return function(){var r=this,i=arguments,c=n&&!a;clearTimeout(a),a=setTimeout((function(){a=null,n||e.apply(r,i)}),t),c&&e.apply(r,i)}}function setCorrectShortcut(){navigator.platform.toUpperCase().indexOf("MAC")>=0&&document.querySelectorAll(".search-keys").forEach((e=>e.innerHTML="⌘ + K"))}function createIndex(e){const t=e=>e.toLowerCase().split(/([^a-z]|[^\x00-\x7F])/),n=new FlexSearch.Document({cache:!0,charset:"latin:extra",optimize:!0,index:[{field:"content",tokenize:"reverse",encode:t},{field:"title",tokenize:"forward",encode:t},{field:"tags",tokenize:"forward",encode:t}]});return e.forEach(((e,t)=>{n.add({id:t,title:e.title,content:e.content,tags:e.tags})})),n}async function init(){let e=!0;if(localStorage.getItem("searchIndex")){let{date:t,docs:n}=JSON.parse(localStorage.getItem("searchIndex"));if("2025-04-08T07:59:00.705Z"===t){e=!1;let t=createIndex(n);window.docs=n,window.index=t}}if(e){let e=await(await fetch("/searchIndex.json?v=2025-04-08T07:59:00.705Z")).json(),t=createIndex(e);localStorage.setItem("searchIndex",JSON.stringify({date:"2025-04-08T07:59:00.705Z",docs:e})),window.docs=e,window.index=t}document.addEventListener("keydown",(e=>{if((e.ctrlKey||e.metaKey)&&"k"===e.key&&(e.preventDefault(),toggleSearch()),"Escape"===e.key&&document.getElementById("globalsearch").classList.remove("active"),document.getElementById("globalsearch").classList.contains("active")){if("ArrowDown"===e.key){e.preventDefault();let t=document.querySelector(".searchresult.active");t?(t.classList.remove("active"),t.nextElementSibling?t.nextElementSibling.classList.add("active"):document.querySelector(".searchresult").classList.add("active")):document.querySelector(".searchresult").classList.add("active");let n=document.querySelector(".searchresult.active");n&&n.scrollIntoView({behavior:"smooth",block:"nearest",inline:"start"})}if("ArrowUp"===e.key){e.preventDefault();let t=document.querySelector(".searchresult.active");t?(t.classList.remove("active"),t.previousElementSibling?t.previousElementSibling.classList.add("active"):document.querySelectorAll(".searchresult").forEach((e=>{e.nextElementSibling||e.classList.add("active")}))):document.querySelectorAll(".searchresult").forEach((e=>{e.nextElementSibling&&e.classList.add("active")}));let n=document.querySelector(".searchresult.active");n&&n.scrollIntoView({behavior:"smooth",block:"nearest",inline:"start"})}if("Enter"===e.key){e.preventDefault();let t=document.querySelector(".searchresult.active");t&&(window.location.href=t.querySelector("a").href)}}}));const t=debounce(search,200,!1);field=document.querySelector("#term"),field.addEventListener("keydown",(e=>{"ArrowDown"!==e.key&&"ArrowUp"!==e.key&&t()})),resultsDiv=document.querySelector("#search-results");const n=new URL(location.href).searchParams;n.get("q")&&(field.setAttribute("value",n.get("q")),toggleSearch(),search())}async function search(){let e=field.value.trim();if(!e)return;if(e==lastSearch)return;console.log(`search for ${e}`),window.lastSearch=e,resultsDiv.innerHTML=loadingSvg;let t=offlineSearch(e),n="";if(!t.length){let t=document.createElement("p");return t.innerText=`No results for "${e}"`,resultsDiv.innerHTML="",void resultsDiv.appendChild(t)}n+='<div style="max-width:100%;">',t.forEach((e=>{e.tags&&e.tags.length>0?n+=`<div class="searchresult">\n                    <a class="search-link" href="${e.url}">${e.title}</a>\n                    <div onclick="window.location='${e.url}'">\n                        <div class="header-meta">\n                            <div class="header-tags">\n                                ${e.tags.map((e=>'<a class="tag" href="JavaScript:Void(0);">#'+e+"</a>")).join("")}\n                            </div>\n                        </div>\n                        ${e.content}\n                    </div>\n                </div>`:n+=`<div class="searchresult">\n                    <a class="search-link" href="${e.url}">${e.title}</a>\n                    <div onclick="window.location='${e.url}'">\n                        ${e.content}\n                    </div>\n                </div>`})),n+="</div>",resultsDiv.innerHTML=n}function truncate(e,t){return(e=e.replaceAll(/<[^>]*>/g,"")).length<t?e:e.substring(0,t-3)+"..."}function offlineSearch(e){let t=window.docs,n="#"===e[0]&&e.length>1?index.search(e.substring(1),[{field:"tags"}]):index.search(e,[{field:"title",limit:5},{field:"content",weight:10}]);const a=e=>{const t=n.filter((t=>t.field===e));return 0===t.length?[]:[...t[0].result]};return[...new Set([...a("title"),...a("content"),...a("tags")])].map((e=>{let n=t[e];return n.content=truncate(n.content,400),n.tags=n.tags.filter((e=>"gardenEntry"!=e&&"note"!=e)),n}))}window.lastSearch=""</script>
+<script>document.addEventListener("DOMContentLoaded",init,!1),document.addEventListener("DOMContentLoaded",setCorrectShortcut,!1),window.toggleSearch=function(){document.getElementById("globalsearch").classList.contains("active")?document.getElementById("globalsearch").classList.remove("active"):(document.getElementById("globalsearch").classList.add("active"),document.getElementById("term").focus())},window.toggleTagSearch=function(e){console.log(e.textContent);const t=e.textContent;t&&(window.document.getElementById("term").value=t.trim(),window.toggleSearch(),window.search())};const loadingSvg='\n    <svg width="100" height="100" viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" stroke="#fff">\n      <g fill="none" fill-rule="evenodd" transform="translate(1 1)" stroke-width="2">\n          <circle cx="22" cy="22" r="6" stroke-opacity="0">\n              <animate attributeName="r"\n                   begin="1.5s" dur="3s"\n                   values="6;22"\n                   calcMode="linear"\n                   repeatCount="indefinite" />\n              <animate attributeName="stroke-opacity"\n                   begin="1.5s" dur="3s"\n                   values="1;0" calcMode="linear"\n                   repeatCount="indefinite" />\n              <animate attributeName="stroke-width"\n                   begin="1.5s" dur="3s"\n                   values="2;0" calcMode="linear"\n                   repeatCount="indefinite" />\n          </circle>\n          <circle cx="22" cy="22" r="6" stroke-opacity="0">\n              <animate attributeName="r"\n                   begin="3s" dur="3s"\n                   values="6;22"\n                   calcMode="linear"\n                   repeatCount="indefinite" />\n              <animate attributeName="stroke-opacity"\n                   begin="3s" dur="3s"\n                   values="1;0" calcMode="linear"\n                   repeatCount="indefinite" />\n              <animate attributeName="stroke-width"\n                   begin="3s" dur="3s"\n                   values="2;0" calcMode="linear"\n                   repeatCount="indefinite" />\n          </circle>\n          <circle cx="22" cy="22" r="8">\n              <animate attributeName="r"\n                   begin="0s" dur="1.5s"\n                   values="6;1;2;3;4;5;6"\n                   calcMode="linear"\n                   repeatCount="indefinite" />\n          </circle>\n      </g>\n  </svg>';function debounce(e,t,n){var a;return function(){var r=this,i=arguments,c=n&&!a;clearTimeout(a),a=setTimeout((function(){a=null,n||e.apply(r,i)}),t),c&&e.apply(r,i)}}function setCorrectShortcut(){navigator.platform.toUpperCase().indexOf("MAC")>=0&&document.querySelectorAll(".search-keys").forEach((e=>e.innerHTML="⌘ + K"))}function createIndex(e){const t=e=>e.toLowerCase().split(/([^a-z]|[^\x00-\x7F])/),n=new FlexSearch.Document({cache:!0,charset:"latin:extra",optimize:!0,index:[{field:"content",tokenize:"reverse",encode:t},{field:"title",tokenize:"forward",encode:t},{field:"tags",tokenize:"forward",encode:t}]});return e.forEach(((e,t)=>{n.add({id:t,title:e.title,content:e.content,tags:e.tags})})),n}async function init(){let e=!0;if(localStorage.getItem("searchIndex")){let{date:t,docs:n}=JSON.parse(localStorage.getItem("searchIndex"));if("2025-04-08T13:35:54.284Z"===t){e=!1;let t=createIndex(n);window.docs=n,window.index=t}}if(e){let e=await(await fetch("/dg/searchIndex.json?v=2025-04-08T13:35:54.284Z")).json(),t=createIndex(e);localStorage.setItem("searchIndex",JSON.stringify({date:"2025-04-08T13:35:54.284Z",docs:e})),window.docs=e,window.index=t}document.addEventListener("keydown",(e=>{if((e.ctrlKey||e.metaKey)&&"k"===e.key&&(e.preventDefault(),toggleSearch()),"Escape"===e.key&&document.getElementById("globalsearch").classList.remove("active"),document.getElementById("globalsearch").classList.contains("active")){if("ArrowDown"===e.key){e.preventDefault();let t=document.querySelector(".searchresult.active");t?(t.classList.remove("active"),t.nextElementSibling?t.nextElementSibling.classList.add("active"):document.querySelector(".searchresult").classList.add("active")):document.querySelector(".searchresult").classList.add("active");let n=document.querySelector(".searchresult.active");n&&n.scrollIntoView({behavior:"smooth",block:"nearest",inline:"start"})}if("ArrowUp"===e.key){e.preventDefault();let t=document.querySelector(".searchresult.active");t?(t.classList.remove("active"),t.previousElementSibling?t.previousElementSibling.classList.add("active"):document.querySelectorAll(".searchresult").forEach((e=>{e.nextElementSibling||e.classList.add("active")}))):document.querySelectorAll(".searchresult").forEach((e=>{e.nextElementSibling&&e.classList.add("active")}));let n=document.querySelector(".searchresult.active");n&&n.scrollIntoView({behavior:"smooth",block:"nearest",inline:"start"})}if("Enter"===e.key){e.preventDefault();let t=document.querySelector(".searchresult.active");t&&(window.location.href=t.querySelector("a").href)}}}));const t=debounce(search,200,!1);field=document.querySelector("#term"),field.addEventListener("keydown",(e=>{"ArrowDown"!==e.key&&"ArrowUp"!==e.key&&t()})),resultsDiv=document.querySelector("#search-results");const n=new URL(location.href).searchParams;n.get("q")&&(field.setAttribute("value",n.get("q")),toggleSearch(),search())}async function search(){let e=field.value.trim();if(!e)return;if(e==lastSearch)return;console.log(`search for ${e}`),window.lastSearch=e,resultsDiv.innerHTML=loadingSvg;let t=offlineSearch(e),n="";if(!t.length){let t=document.createElement("p");return t.innerText=`No results for "${e}"`,resultsDiv.innerHTML="",void resultsDiv.appendChild(t)}n+='<div style="max-width:100%;">',t.forEach((e=>{e.tags&&e.tags.length>0?n+=`<div class="searchresult">\n                    <a class="search-link" href="${e.url}">${e.title}</a>\n                    <div onclick="window.location='${e.url}'">\n                        <div class="header-meta">\n                            <div class="header-tags">\n                                ${e.tags.map((e=>'<a class="tag" href="JavaScript:Void(0);">#'+e+"</a>")).join("")}\n                            </div>\n                        </div>\n                        ${e.content}\n                    </div>\n                </div>`:n+=`<div class="searchresult">\n                    <a class="search-link" href="${e.url}">${e.title}</a>\n                    <div onclick="window.location='${e.url}'">\n                        ${e.content}\n                    </div>\n                </div>`})),n+="</div>",resultsDiv.innerHTML=n}function truncate(e,t){return(e=e.replaceAll(/<[^>]*>/g,"")).length<t?e:e.substring(0,t-3)+"..."}function offlineSearch(e){let t=window.docs,n="#"===e[0]&&e.length>1?index.search(e.substring(1),[{field:"tags"}]):index.search(e,[{field:"title",limit:5},{field:"content",weight:10}]);const a=e=>{const t=n.filter((t=>t.field===e));return 0===t.length?[]:[...t[0].result]};return[...new Set([...a("title"),...a("content"),...a("tags")])].map((e=>{let n=t[e];return n.content=truncate(n.content,400),n.tags=n.tags.filter((e=>"gardenEntry"!=e&&"note"!=e)),n}))}window.lastSearch=""</script>
 <main class="content cm-s-obsidian">
 <header>
 <h1></h1>
@@ -116,7 +118,7 @@ CTRL + K
 </div>
 </header>
 <h1 id="目录" tabindex="-1">目录</h1>
-<p>!<a class="internal-link is-unresolved" href="/404" target="">Home</a></p>
+<p>!<a class="internal-link is-unresolved" href="/dg/404/" target="">Home</a></p>
 <h2 id="a-href-e7-bc-96-e7-a8-8-b-e8-af-ad-e8-a8-80-e7-bc-96-e7-a8-8-b-e8-af-ad-e8-a8-80-md-target-blank-class-external-link-a" tabindex="-1"><a href="%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80.md" target="_blank" class="external-link">编程语言</a></h2>
 <div class="block-language-dataview table-wrapper"><table class="dataview table-view-table">
 <thead class="table-view-thead">
@@ -127,379 +129,379 @@ CTRL + K
 </thead>
 <tbody class="table-view-tbody">
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">CPP</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">CPP</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">STL</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">STL</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">C 11</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">C 11</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">C</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">C</a></td>
 <td>C</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">GCC</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">GCC</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">小知识</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">小知识</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">定时器</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">定时器</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">操作系统</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">操作系统</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">状态机</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">状态机</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">模板</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">模板</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">源代码</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">源代码</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">类和对象</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">类和对象</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">练习题</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">练习题</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">网络编程</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">网络编程</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Go</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Go</a></td>
 <td>Go</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Gin</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Gin</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Java</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Java</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">RXTX</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">RXTX</a></td>
 <td>JAVA</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">练习题</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">练习题</a></td>
 <td>JAVA</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">问题</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">问题</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">JavaScript</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">JavaScript</a></td>
 <td>JavaScript</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">NodeJS</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">NodeJS</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">内置对象</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">内置对象</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Apache</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Apache</a></td>
 <td>前端</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Axios</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Axios</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Hexo</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Hexo</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">JQuery</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">JQuery</a></td>
 <td><ul><li>JavaScript</li><li>编程</li></ul></td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Nginx</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Nginx</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">UniApp</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">UniApp</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">功能集合</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">功能集合</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Vue2</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Vue2</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Vue3</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Vue3</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">CSS</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">CSS</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">示例</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">示例</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Emmet</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Emmet</a></td>
 <td>标准</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">HTML</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">HTML</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">HTTP</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">HTTP</a></td>
 <td>协议</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">PostScript</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">PostScript</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Prettier</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Prettier</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">TypeScript</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">TypeScript</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">小知识</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">小知识</a></td>
 <td>前端</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">跨域</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">跨域</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">常用示例</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">常用示例</a></td>
 <td>JavaScript</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">数据类型</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">数据类型</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">流程与函数</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">流程与函数</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Latex</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Latex</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Latex3</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Latex3</a></td>
 <td><ul><li>latex</li><li>标准</li></ul></td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">参考文献及附录</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">参考文献及附录</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">数学相关</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">数学相关</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">示例</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">示例</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">联合vscode</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">联合vscode</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Lua</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Lua</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Matlab</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Matlab</a></td>
 <td>Matlab</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">工具箱</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">工具箱</a></td>
 <td>Matlab</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">练习题</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">练习题</a></td>
 <td>Matlab</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">问题</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">问题</a></td>
 <td>Matlab</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Mysql</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Mysql</a></td>
 <td>Mysql</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">常见函数</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">常见函数</a></td>
 <td>Mysql</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">数据库</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">数据库</a></td>
 <td>Mysql</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">数据操作</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">数据操作</a></td>
 <td>Mysql</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">数据查询</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">数据查询</a></td>
 <td>Mysql</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">数据类型</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">数据类型</a></td>
 <td>Mysql</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">数据表</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">数据表</a></td>
 <td>Mysql</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">权限</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">权限</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">问题</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">问题</a></td>
 <td>Mysql</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">PHP</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">PHP</a></td>
 <td>PHP</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Python</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Python</a></td>
 <td>Python</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">图像处理</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">图像处理</a></td>
 <td>Python</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">基础操作</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">基础操作</a></td>
 <td>Python</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">小知识</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">小知识</a></td>
 <td>Python</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">OpenCV</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">OpenCV</a></td>
 <td>Python</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Requests</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Requests</a></td>
 <td>Python</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Selenium</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Selenium</a></td>
 <td>Python</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">异步</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">异步</a></td>
 <td>Python</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Matplotlib</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Matplotlib</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Numpy</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Numpy</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Plotly</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Plotly</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Pytorch</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Pytorch</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">数据处理</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">数据处理</a></td>
 <td>Python</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">正则</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">正则</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">文件处理</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">文件处理</a></td>
 <td>Python</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">服务搭建</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">服务搭建</a></td>
 <td>Python</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">常用库</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">常用库</a></td>
 <td>Python</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">爬虫</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">爬虫</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">系统操作</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">系统操作</a></td>
 <td>Python</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">练习题</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">练习题</a></td>
 <td>Python</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">语言解析</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">语言解析</a></td>
 <td>Python</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">问题</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">问题</a></td>
 <td>Python</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Rust</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Rust</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Verilog</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Verilog</a></td>
 <td>Verilog</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">小知识</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">小知识</a></td>
 <td>Verilog</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">练习题</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">练习题</a></td>
 <td>Verilog</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">汇编</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">汇编</a></td>
 <td>汇编</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">编程语言</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">编程语言</a></td>
 <td>目录</td>
 </tr>
 </tbody>
@@ -541,91 +543,91 @@ CTRL + K
 </thead>
 <tbody class="table-view-tbody">
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">AD</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">AD</a></td>
 <td>软件</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Arduino</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Arduino</a></td>
 <td>软件</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">CubeMX</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">CubeMX</a></td>
 <td>软件</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Eclipse</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Eclipse</a></td>
 <td>软件</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">IAR</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">IAR</a></td>
 <td>软件</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">KEIL</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">KEIL</a></td>
 <td>软件</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">PlatformIO</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">PlatformIO</a></td>
 <td>软件</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">ADS</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">ADS</a></td>
 <td>软件</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">ModelSim</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">ModelSim</a></td>
 <td>软件</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">OPNET</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">OPNET</a></td>
 <td>软件</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Quartus</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Quartus</a></td>
 <td>软件</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Vivado</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Vivado</a></td>
 <td>软件</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Windbg</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Windbg</a></td>
 <td>软件</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Sublime</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Sublime</a></td>
 <td>软件</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Vim</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Vim</a></td>
 <td>软件</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">caj2pdf</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">caj2pdf</a></td>
 <td>软件</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">CMake</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">CMake</a></td>
 <td>软件</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Docker</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Docker</a></td>
 <td>软件</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Git</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Git</a></td>
 <td>软件</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Utools</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Utools</a></td>
 <td>软件</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">BurpSuite</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">BurpSuite</a></td>
 <td>软件</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">ffmpeg</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">ffmpeg</a></td>
 <td>软件</td>
 </tr>
 </tbody>
@@ -640,11 +642,11 @@ CTRL + K
 </thead>
 <tbody class="table-view-tbody">
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">说话的艺术</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">说话的艺术</a></td>
 <td>生活</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">选择</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">选择</a></td>
 <td>生活</td>
 </tr>
 </tbody>
@@ -659,27 +661,27 @@ CTRL + K
 </thead>
 <tbody class="table-view-tbody">
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Kali</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Kali</a></td>
 <td>网安</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Metasploit</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Metasploit</a></td>
 <td>网安</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">SQL注入</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">SQL注入</a></td>
 <td>网安</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">WebShell</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">WebShell</a></td>
 <td>网安</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">密码学</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">密码学</a></td>
 <td>网安</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">工具网站</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">工具网站</a></td>
 <td>网安</td>
 </tr>
 </tbody>
@@ -694,295 +696,295 @@ CTRL + K
 </thead>
 <tbody class="table-view-tbody">
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Linux</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Linux</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Ubuntu</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Ubuntu</a></td>
 <td>Linux</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">显卡</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">显卡</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">火狐浏览器</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">火狐浏览器</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">输入法</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">输入法</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">PXE</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">PXE</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">PXE_C</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">PXE_C</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">VNC</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">VNC</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">吐核文件</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">吐核文件</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">系统迁移</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">系统迁移</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">系统还原</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">系统还原</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">SSH</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">SSH</a></td>
 <td>Linux</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">包管理</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">包管理</a></td>
 <td>Linux</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">基础服务</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">基础服务</a></td>
 <td>Linux</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">文件处理</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">文件处理</a></td>
 <td>Linux</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">文件系统</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">文件系统</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">磁盘分区</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">磁盘分区</a></td>
 <td>Linux</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">磁盘扩容</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">磁盘扩容</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">日志管理</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">日志管理</a></td>
 <td>Linux</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">显示服务</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">显示服务</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">服务管理</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">服务管理</a></td>
 <td>Linux</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">权限管理</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">权限管理</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">网络管理</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">网络管理</a></td>
 <td>Linux</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">防火墙</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">防火墙</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">进程管理</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">进程管理</a></td>
 <td>Linux</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">基础命令</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">基础命令</a></td>
 <td>Linux</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">正则</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">正则</a></td>
 <td>Linux</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">系统构成</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">系统构成</a></td>
 <td>Linux</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Ubuntu18 无网络问题</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Ubuntu18 无网络问题</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">常见问题</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">常见问题</a></td>
 <td>Linux</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">换行符转换</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">换行符转换</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">ELF</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">ELF</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">IO设备</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">IO设备</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">中断分时任务</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">中断分时任务</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">内核启动</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">内核启动</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">内核模块</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">内核模块</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">内核编译</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">内核编译</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">系统内核</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">系统内核</a></td>
 <td>Linux</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">系统引导</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">系统引导</a></td>
 <td>Linux</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">虚拟存储</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">虚拟存储</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">链接加载</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">链接加载</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Bash</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Bash</a></td>
 <td>Linux</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">基础语法</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">基础语法</a></td>
 <td><ul><li>Shell</li></ul></td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">运维命令</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">运维命令</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Dos</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Dos</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Powershell</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Powershell</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">脚本模块</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">脚本模块</a></td>
 <td><ul><li>Shell</li><li>脚本</li><li>Powershell</li></ul></td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Shell</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Shell</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">WSL</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">WSL</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">问题</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">问题</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Zsh&amp;Bash</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Zsh&amp;Bash</a></td>
 <td>Linux</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">基础语法</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">基础语法</a></td>
 <td><ul><li>Shell</li></ul></td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">运维命令</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">运维命令</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Windows</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Windows</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">小知识</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">小知识</a></td>
 <td>Windows</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">修改中文用户名</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">修改中文用户名</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">图标缓存</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">图标缓存</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">常见问题</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">常见问题</a></td>
 <td>Windows</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">恢复微软商店</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">恢复微软商店</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">磁盘RAW</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">磁盘RAW</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">网络共享</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">网络共享</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">防火墙丢失</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">防火墙丢失</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">AD</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">AD</a></td>
 <td>Windows</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">DHCP</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">DHCP</a></td>
 <td>Windows</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">DNS</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">DNS</a></td>
 <td>Windows</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">FTP</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">FTP</a></td>
 <td>Windows</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">IIS</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">IIS</a></td>
 <td>Windows</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">Onedrive</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">Onedrive</a></td>
 <td>Windows</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">包管理</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">包管理</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">系统</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">系统</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">文件共享</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">文件共享</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">镜像</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">镜像</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">静态IP</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">静态IP</a></td>
 <td>Windows</td>
 </tr>
 </tbody>
@@ -997,27 +999,27 @@ CTRL + K
 </thead>
 <tbody class="table-view-tbody">
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">CAN</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">CAN</a></td>
 <td>协议</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">I2C</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">I2C</a></td>
 <td>协议</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">LPUART</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">LPUART</a></td>
 <td>协议</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">NEC</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">NEC</a></td>
 <td>协议</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">SPI</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">SPI</a></td>
 <td>协议</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">USART</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">USART</a></td>
 <td>协议</td>
 </tr>
 </tbody>
@@ -1032,79 +1034,79 @@ CTRL + K
 </thead>
 <tbody class="table-view-tbody">
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">DAP</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">DAP</a></td>
 <td>DAP</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">安卓证书</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">安卓证书</a></td>
 <td>APK</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">环境说明</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">环境说明</a></td>
 <td>APK</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">数据表</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">数据表</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">墨水屏</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">墨水屏</a></td>
 <td>嵌入式</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">VNX</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">VNX</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">脚本使用说明</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">脚本使用说明</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">虚拟仿真平台协议代码测试</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">虚拟仿真平台协议代码测试</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">MAC</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">MAC</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">初版消息格式</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">初版消息格式</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">新版消息格式</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">新版消息格式</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">端机连接</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">端机连接</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">网络开发</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">网络开发</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">配置文件</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">配置文件</a></td>
 <td>-</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">JS</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">JS</a></td>
 <td>微信小程序</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">WXML</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">WXML</a></td>
 <td>微信小程序</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">WXSS</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">WXSS</a></td>
 <td>微信小程序</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">项目结构</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">项目结构</a></td>
 <td>微信小程序</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">项目</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">项目</a></td>
 <td>-</td>
 </tr>
 </tbody>
@@ -1119,75 +1121,75 @@ CTRL + K
 </thead>
 <tbody class="table-view-tbody">
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">功能</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">功能</a></td>
 <td>嵌入式</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">ADC</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">ADC</a></td>
 <td>嵌入式</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">GPIO</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">GPIO</a></td>
 <td>嵌入式</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">TIM</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">TIM</a></td>
 <td>嵌入式</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">小知识</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">小知识</a></td>
 <td>嵌入式</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">嵌入式</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">嵌入式</a></td>
 <td>嵌入式</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">接口大全</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">接口大全</a></td>
 <td>嵌入式</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">电脑</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">电脑</a></td>
 <td>嵌入式</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">432P401R</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">432P401R</a></td>
 <td>嵌入式</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">F411RE</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">F411RE</a></td>
 <td>嵌入式</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">F429IGT6</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">F429IGT6</a></td>
 <td>嵌入式</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">MSP430G2553</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">MSP430G2553</a></td>
 <td>嵌入式</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">MSPM0</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">MSPM0</a></td>
 <td>嵌入式</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">STM32U575</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">STM32U575</a></td>
 <td>嵌入式</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">zynq7010</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">zynq7010</a></td>
 <td>嵌入式</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">树莓派</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">树莓派</a></td>
 <td>嵌入式</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">芯片模块</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">芯片模块</a></td>
 <td>嵌入式</td>
 </tr>
 <tr>
-<td><a class="internal-link is-unresolved" href="/404" target="">问题</a></td>
+<td><a class="internal-link is-unresolved" href="/dg/404/" target="">问题</a></td>
 <td>嵌入式</td>
 </tr>
 </tbody>
@@ -1196,7 +1198,7 @@ CTRL + K
 <aside>
 <div class="sidebar">
 <div class="sidebar-container">
-<script>async function fetchGraphData(){const e=await fetch("/graph.json").then((e=>e.json()));return{graphData:e,fullGraphData:filterFullGraphData(e)}}function getNextLevelNeighbours(e,t){const n=Object.values(e).map((e=>e.neighbors)).flat();return Object.keys(t).reduce(((r,l)=>(-1!=n.indexOf(l)?t[l].hide||(e[l]=t[l]):r[l]=t[l],r)),{})}function filterLocalGraphData(e,t){if(null==e)return null;let n=JSON.parse(JSON.stringify(e.nodes)),r=JSON.parse(JSON.stringify(e.links)),l=n[decodeURI(window.location.pathname)]||Object.values(n).find((e=>e.home));if(delete n[l.url],!l.home){delete n[Object.values(n).find((e=>e.home)).url]}l.current=!0;let i={};i[l.url]=l;for(let e=0;e<t;e++)n=getNextLevelNeighbours(i,n);nodes=Object.values(i),l.home||(nodes=nodes.filter((e=>!e.home)));let o=nodes.map((e=>e.id));return{nodes:nodes,links:r.filter((function(e){return o.indexOf(e.target)>-1&&o.indexOf(e.source)>-1}))}}function getCssVar(e){return getComputedStyle(document.body).getPropertyValue(e)}function htmlDecode(e){return(new DOMParser).parseFromString(e,"text/html").documentElement.textContent}function renderGraph(e,t,n,r){if(null==e)return;const l=document.getElementById(t);width=l.offsetWidth,height=l.offsetHeight;const i=new Set;let o=null;const a=getCssVar("--graph-main"),s=getCssVar("--graph-muted");let u=ForceGraph()(l).graphData(e).nodeId("id").nodeLabel("title").linkSource("source").linkTarget("target").d3AlphaDecay(.1).width(width).height(height).linkDirectionalArrowLength(2).linkDirectionalArrowRelPos(.5).autoPauseRedraw(!1).linkColor((e=>null==o||e.source.id==o.id||e.target.id==o.id?a:s)).nodeCanvasObject(((e,t)=>{const n=e.neighbors&&e.neighbors.length||2,r=Math.min(7,Math.max(n/2,2));t.beginPath(),t.arc(e.x,e.y,r,0,2*Math.PI,!1),null==o||e==o||i.has(e.url)?t.fillStyle=a:t.fillStyle=s,t.fill(),e.current&&(t.beginPath(),t.arc(e.x,e.y,r+1,0,2*Math.PI,!1),t.lineWidth=.5,t.strokeStyle=a,t.stroke());const l=htmlDecode(e.title);t.font="3.5px Sans-Serif",t.textAlign="center",t.textBaseline="top",t.fillText(l,e.x,e.y+r+2)})).onNodeClick((e=>{window.location=e.url})).onNodeHover((e=>{i.clear(),e&&(i.add(e),e.neighbors.forEach((e=>i.add(e)))),o=e||null}));return(r||null!=n&&e.nodes.length>4)&&setTimeout((()=>{u.zoomToFit(5,75)}),n||200),u}function renderLocalGraph(e,t,n){window.graph&&window.graph._destructor();return renderGraph(filterLocalGraphData(e,t),"link-graph",null,n)}function filterFullGraphData(e){if(null==e)return null;e=JSON.parse(JSON.stringify(e));const t=Object.values(e.nodes).filter((e=>e.hide)).map((e=>e.id));return{links:JSON.parse(JSON.stringify(e.links)).filter((e=>-1==t.indexOf(e.source)&&-1==t.indexOf(e.target))),nodes:[...Object.values(e.nodes).filter((e=>!e.hide))]}}function openFullGraph(e){return lucide.createIcons({attrs:{class:["svg-icon"]}}),renderGraph(e,"full-graph-container",200,!1)}function closefullGraph(e){return e&&e._destructor(),null}</script>
+<script>async function fetchGraphData(){const e=await fetch("/dg/graph.json").then((e=>e.json()));return{graphData:e,fullGraphData:filterFullGraphData(e)}}function getNextLevelNeighbours(e,t){const n=Object.values(e).map((e=>e.neighbors)).flat();return Object.keys(t).reduce(((r,l)=>(-1!=n.indexOf(l)?t[l].hide||(e[l]=t[l]):r[l]=t[l],r)),{})}function filterLocalGraphData(e,t){if(null==e)return null;let n=JSON.parse(JSON.stringify(e.nodes)),r=JSON.parse(JSON.stringify(e.links)),l=n[decodeURI(window.location.pathname)]||Object.values(n).find((e=>e.home));if(delete n[l.url],!l.home){delete n[Object.values(n).find((e=>e.home)).url]}l.current=!0;let i={};i[l.url]=l;for(let e=0;e<t;e++)n=getNextLevelNeighbours(i,n);nodes=Object.values(i),l.home||(nodes=nodes.filter((e=>!e.home)));let o=nodes.map((e=>e.id));return{nodes:nodes,links:r.filter((function(e){return o.indexOf(e.target)>-1&&o.indexOf(e.source)>-1}))}}function getCssVar(e){return getComputedStyle(document.body).getPropertyValue(e)}function htmlDecode(e){return(new DOMParser).parseFromString(e,"text/html").documentElement.textContent}function renderGraph(e,t,n,r){if(null==e)return;const l=document.getElementById(t);width=l.offsetWidth,height=l.offsetHeight;const i=new Set;let o=null;const a=getCssVar("--graph-main"),s=getCssVar("--graph-muted");let u=ForceGraph()(l).graphData(e).nodeId("id").nodeLabel("title").linkSource("source").linkTarget("target").d3AlphaDecay(.1).width(width).height(height).linkDirectionalArrowLength(2).linkDirectionalArrowRelPos(.5).autoPauseRedraw(!1).linkColor((e=>null==o||e.source.id==o.id||e.target.id==o.id?a:s)).nodeCanvasObject(((e,t)=>{const n=e.neighbors&&e.neighbors.length||2,r=Math.min(7,Math.max(n/2,2));t.beginPath(),t.arc(e.x,e.y,r,0,2*Math.PI,!1),null==o||e==o||i.has(e.url)?t.fillStyle=a:t.fillStyle=s,t.fill(),e.current&&(t.beginPath(),t.arc(e.x,e.y,r+1,0,2*Math.PI,!1),t.lineWidth=.5,t.strokeStyle=a,t.stroke());const l=htmlDecode(e.title);t.font="3.5px Sans-Serif",t.textAlign="center",t.textBaseline="top",t.fillText(l,e.x,e.y+r+2)})).onNodeClick((e=>{window.location=e.url})).onNodeHover((e=>{i.clear(),e&&(i.add(e),e.neighbors.forEach((e=>i.add(e)))),o=e||null}));return(r||null!=n&&e.nodes.length>4)&&setTimeout((()=>{u.zoomToFit(5,75)}),n||200),u}function renderLocalGraph(e,t,n){window.graph&&window.graph._destructor();return renderGraph(filterLocalGraphData(e,t),"link-graph",null,n)}function filterFullGraphData(e){if(null==e)return null;e=JSON.parse(JSON.stringify(e));const t=Object.values(e.nodes).filter((e=>e.hide)).map((e=>e.id));return{links:JSON.parse(JSON.stringify(e.links)).filter((e=>-1==t.indexOf(e.source)&&-1==t.indexOf(e.target))),nodes:[...Object.values(e.nodes).filter((e=>!e.hide))]}}function openFullGraph(e){return lucide.createIcons({attrs:{class:["svg-icon"]}}),renderGraph(e,"full-graph-container",200,!1)}function closefullGraph(e){return e&&e._destructor(),null}</script>
 <div x-init="{graphData, fullGraphData} = await fetchGraphData();" x-data="{ graphData: null, depth: 1, graph: null, fullGraph: null, showFullGraph: false, fullScreen: false, fullGraphData: null}" id="graph-component" x-bind:class="fullScreen ? 'graph graph-fs' : 'graph'" v-scope>
 <div class="graph-title-container">
 <div class="graph-title">Connected Pages</div>
@@ -1214,14 +1216,21 @@ CTRL + K
 <span id="depth-display" x-text="depth"></span>
 </div>
 <div class="ctrl-right">
-<span id="global-graph-btn" x-on:click="showFullGraph = true; setTimeout(() => {fullGraph = openFullGraph(fullGraphData)}, 100)"><i icon-name="globe" aria-hidden="true"></i></span>
-<span id="graph-fs-btn" x-on:click="fullScreen = !fullScreen"><i icon-name="expand" aria-hidden="true"></i></span>
+<span id="global-graph-btn" x-on:click="showFullGraph = true; setTimeout(() => {fullGraph = openFullGraph(fullGraphData)}, 100)">
+<i icon-name="globe" aria-hidden="true"></i>
+</span>
+<span id="graph-fs-btn" x-on:click="fullScreen = !fullScreen">
+<i icon-name="expand" aria-hidden="true"></i>
+</span>
 </div>
 </div>
 </div>
 <div x-effect="window.graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph"></div>
 <div x-show="showFullGraph" id="full-graph" class="show" style="display:none">
-<span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;"><i icon-name="x" aria-hidden="true"></i></span><div id="full-graph-container"></div>
+<span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;">
+<i icon-name="x" aria-hidden="true"></i>
+</span>
+<div id="full-graph-container"></div>
 </div>
 </div>
 <div class="toc">
