@@ -3,14 +3,14 @@
     <title>万星阁</title>
     <link href="https://wanstarge.github.io/dg/feed.xml" rel="self" >
     <link href="https://wanstarge.github.io/dg" >
-    <updated>2025-04-11T08:41:23Z</updated>
+    <updated>2025-04-11T10:25:07Z</updated>
     <id>https://wanstarge.github.io/dg</id>
         <entry>
             <title>
                 镜像
                 
             </title>
-            <updated>2025-04-11T08:41:11Z</updated>
+            <updated>2025-04-11T10:24:55Z</updated>
             <id>https://wanstarge.github.io/dg/dg/系统/通用功能/镜像/</id>
             <content type="html">
                 &lt;p&gt;由于系统刚安装的时候无法识别 ntfs 格式的 U 盘，还是放到网络上会比较好找一点，同时也顺带整理了其他环境所需要的镜像&lt;/p&gt;
@@ -92,7 +92,7 @@ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
                 目录
                 
             </title>
-            <updated>2025-04-11T08:41:11Z</updated>
+            <updated>2025-04-11T10:24:55Z</updated>
             <id>https://wanstarge.github.io/dg/dg/</id>
             <content type="html">
                 &lt;h1 id=&quot;目录&quot; tabindex=&quot;-1&quot;&gt;目录&lt;/h1&gt;
@@ -966,7 +966,7 @@ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
 &lt;td&gt;Windows&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://wanstarge.github.io/%E7%B3%BB%E7%BB%9F/%E9%80%9A%E7%94%A8%E5%8A%9F%E8%83%BD/%E9%95%9C%E5%83%8F/&quot;&gt;镜像&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://wanstarge.github.io/dg/%E7%B3%BB%E7%BB%9F/%E9%80%9A%E7%94%A8%E5%8A%9F%E8%83%BD/%E9%95%9C%E5%83%8F/&quot;&gt;镜像&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;通用&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -1185,7 +1185,7 @@ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
                 晶振
                 
             </title>
-            <updated>2025-04-11T08:41:11Z</updated>
+            <updated>2025-04-11T10:24:55Z</updated>
             <id>https://wanstarge.github.io/dg/dg/PCB/晶振/</id>
             <content type="html">
                 &lt;h1 id=&quot;晶振&quot; tabindex=&quot;-1&quot;&gt;晶振&lt;/h1&gt;
