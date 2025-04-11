@@ -1,16 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://wanstarge.github.io/dg">
-    <title>万星阁</title>
+    <title>Digital Garden</title>
     <link href="https://wanstarge.github.io/dg/feed.xml" rel="self" >
     <link href="https://wanstarge.github.io/dg" >
-    <updated>2025-04-09T05:22:07Z</updated>
+    <updated>2025-04-11T03:06:07Z</updated>
     <id>https://wanstarge.github.io/dg</id>
+        <entry>
+            <title>
+                镜像
+                
+            </title>
+            <updated>2025-04-11T03:05:51Z</updated>
+            <id>https://wanstarge.github.io/dg/dg/系统/通用功能/镜像/</id>
+            <content type="html">
+                &lt;p&gt;由于系统刚安装的时候无法识别 ntfs 格式的 U 盘，还是放到网络上会比较好找一点，同时也顺带整理了其他环境所需要的镜像&lt;/p&gt;
+&lt;h2 id=&quot;cent-os&quot; tabindex=&quot;-1&quot;&gt;CentOS&lt;/h2&gt;
+&lt;p&gt;首先执行 &lt;code&gt;{sh}sudo find /etc/yum.repos.d/ -name &amp;quot;*.bak&amp;quot; -exec mv {} {}.bak &#92;;&lt;/code&gt; 来备份原有的安装源文件，而后针对对应的系统执行下方命令获取对应镜像源&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;curl -o /etc/yum.repos.d/Centos-vault-8.5.2111.repo https://mirrors.aliyun.com/repo/Centos-vault-8.5.2111.repo
+curl -o /etc/yum.repos.d/epel-archive-8.repo https://mirrors.aliyun.com/repo/epel-archive-8.repo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;再执行 &lt;code&gt;{sh}sudo yum clean all &amp;amp;&amp;amp; yum makecache&lt;/code&gt; 之后就可以下载自己需要的安装包了&lt;/p&gt;
+&lt;h2 id=&quot;linux-ubuntu-ubuntu-ubuntu&quot; tabindex=&quot;-1&quot;&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://wanstarge.github.io/dg/404/&quot; target=&quot;&quot;&gt;Ubuntu&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;在 Ubuntu 24.04 之前，Ubuntu 的软件源配置文件使用传统的 One-Line-Style，路径为 &lt;code&gt;/etc/apt/sources.list&lt;/code&gt;；从 Ubuntu 24.04 开始，Ubuntu 的软件源配置文件变更为 DEB822 格式，路径为 &lt;code&gt;/etc/apt/sources.list.d/ubuntu.sources&lt;/code&gt;，各自对应命令如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;传统模式&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# 备份源文件 
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+# 替换镜像链接
+sed -i &#39;s|http://archive.ubuntu.com/ubuntu|http://mirrors.aliyun.com/ubuntu|g&#39; /etc/apt/sources.list
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;DEB822 格式&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# 备份源文件 
+sudo cp /etc/apt/sources.list.d/ubuntu.sources /etc/apt/sources.list.d/ubuntu.sources.bak
+# 替换镜像链接
+sed -i &#39;s|http://archive.ubuntu.com/ubuntu|http://mirrors.aliyun.com/ubuntu|g&#39; /etc/apt/sources.list.d/ubuntu.sources &#92;
+    &amp;amp;&amp;amp; sed -i &#39;s|http://security.ubuntu.com/ubuntu|http://mirrors.aliyun.com/ubuntu|g&#39; /etc/apt/sources.list.d/ubuntu.sources
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;npm&quot; tabindex=&quot;-1&quot;&gt;NPM&lt;/h2&gt;
+&lt;p&gt;npm 是 nodejs 的包管理软件，目前其最常用的国内镜像源是淘宝镜像源，更换方式如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# 全局设置，&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://wanstarge.github.io/dg/404/&quot; target=&quot;&quot;&gt;linux&lt;/a&gt;下好像是针对当前项目设置
+npm config set registry https://registry.npmmirror.com
+# 临时使用
+npm i [包名] --registry=https://registry.npmmirror.com
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;rust&quot; tabindex=&quot;-1&quot;&gt;Rust&lt;/h2&gt;
+&lt;p&gt;首先安装的时候需要指定镜像源，按照官方提供的 &lt;code&gt;https://sh.rustup.rs&lt;/code&gt; 经常会出现无法正常安装或者时间过长的问题，这里使用中科大的镜像源，步骤如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# 设置toolchain以及rustup安装镜像，可以在终端中临时设置，也可以放到bashrc中
+export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
+export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
+# 指定cargo安装目录
+export CARGO_HOME=/opt/cargo
+# 下载安装脚本
+wget https://mirrors.ustc.edu.cn/misc/rustup-install.sh
+# 执行安装
+bash rustup-install.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;python-python-python&quot; tabindex=&quot;-1&quot;&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://wanstarge.github.io/dg/404/&quot; target=&quot;&quot;&gt;Python&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;配置 pip 以及 conda 镜像，安装包的通过网上应该很容易找到，不行就微软商店（我比较抵触），linux 下使用对应的 &lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://wanstarge.github.io/dg/404/&quot; target=&quot;&quot;&gt;包管理&lt;/a&gt; 软件安装即可，配置镜像步骤如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# 配置pip镜像
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+# 配置conda镜像
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/conda 
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/# 
+# conda添加pytorch镜像
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/# for legacy win-64
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/peterjc123/conda
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;maven&quot; tabindex=&quot;-1&quot;&gt;Maven&lt;/h2&gt;
+&lt;p&gt;默认情况下，mvn 在当前用户名目录下的.m2 文件夹中建立仓库，我们可以修改 maven 安装目录下 conf 文件夹里的 settings.xml 文件，修改 &lt;code&gt;${user.home}/.m2/repository&lt;/code&gt; 为自己想要存储的位置即可&lt;/p&gt;
+&lt;p&gt;默认的官方库存在于 pom-4.0.0.xml 内，可通过便捷使用 winrar 的查找定位来进行找到，里面配置了中央仓库的地址（国外镜像），在 settings.xml 中配置镜像如下：也可以在上述创建的 repository 文件夹下新建一个 settings.xml 以覆盖全局配置&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-xml&quot;&gt;&amp;lt;mirrors&amp;gt;
+	&amp;lt;mirror&amp;gt;
+	    &amp;lt;id&amp;gt;aliyunmaven&amp;lt;/id&amp;gt;
+	    &amp;lt;mirrorOf&amp;gt;central,jcenter&amp;lt;/mirrorOf&amp;gt; &amp;lt;!--配置只代理中央仓库--&amp;gt;
+	    &amp;lt;name&amp;gt;aliyun&amp;lt;/name&amp;gt;
+	    &amp;lt;url&amp;gt;https://maven.aliyun.com/repository/public&amp;lt;/url&amp;gt;
+	&amp;lt;/mirror&amp;gt;
+&amp;lt;/mirrors&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+            </content>
+            <link href="https://wanstarge.github.io/dg/dg/系统/通用功能/镜像/" >
+        </entry>
         <entry>
             <title>
                 目录
                 
             </title>
-            <updated>2025-04-09T05:21:48Z</updated>
+            <updated>2025-04-11T03:05:51Z</updated>
             <id>https://wanstarge.github.io/dg/dg/</id>
             <content type="html">
                 &lt;h1 id=&quot;目录&quot; tabindex=&quot;-1&quot;&gt;目录&lt;/h1&gt;
@@ -109,11 +191,11 @@
 &lt;td&gt;JavaScript&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://wanstarge.github.io/dg/404/&quot; target=&quot;&quot;&gt;NodeJS&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://wanstarge.github.io/dg/404/&quot; target=&quot;&quot;&gt;内置对象&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;-&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://wanstarge.github.io/dg/404/&quot; target=&quot;&quot;&gt;内置对象&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://wanstarge.github.io/dg/404/&quot; target=&quot;&quot;&gt;NodeJS&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;-&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -592,6 +674,10 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
+&lt;td&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://wanstarge.github.io/dg/404/&quot; target=&quot;&quot;&gt;引导修复&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://wanstarge.github.io/dg/404/&quot; target=&quot;&quot;&gt;Linux&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;-&lt;/td&gt;
 &lt;/tr&gt;
@@ -648,16 +734,16 @@
 &lt;td&gt;Linux&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://wanstarge.github.io/dg/404/&quot; target=&quot;&quot;&gt;LVM&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://wanstarge.github.io/dg/404/&quot; target=&quot;&quot;&gt;文件处理&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;Linux&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://wanstarge.github.io/dg/404/&quot; target=&quot;&quot;&gt;文件系统&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://wanstarge.github.io/dg/404/&quot; target=&quot;&quot;&gt;磁盘分区&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Linux&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://wanstarge.github.io/dg/404/&quot; target=&quot;&quot;&gt;磁盘扩容&lt;/a&gt;&lt;/td&gt;
@@ -876,12 +962,12 @@
 &lt;td&gt;-&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://wanstarge.github.io/dg/404/&quot; target=&quot;&quot;&gt;镜像&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://wanstarge.github.io/dg/404/&quot; target=&quot;&quot;&gt;静态IP&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;Windows&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://wanstarge.github.io/%E7%B3%BB%E7%BB%9F/%E9%80%9A%E7%94%A8%E5%8A%9F%E8%83%BD/%E9%95%9C%E5%83%8F/&quot;&gt;镜像&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;通用&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -994,11 +1080,11 @@
 &lt;td&gt;微信小程序&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://wanstarge.github.io/dg/404/&quot; target=&quot;&quot;&gt;WXSS&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://wanstarge.github.io/dg/404/&quot; target=&quot;&quot;&gt;项目结构&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;微信小程序&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://wanstarge.github.io/dg/404/&quot; target=&quot;&quot;&gt;项目结构&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://wanstarge.github.io/dg/404/&quot; target=&quot;&quot;&gt;WXSS&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;微信小程序&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1099,8 +1185,8 @@
                 晶振
                 
             </title>
-            <updated>2025-04-09T05:21:48Z</updated>
-            <id>https://wanstarge.github.io/dg/dg/pcb/</id>
+            <updated>2025-04-11T03:05:51Z</updated>
+            <id>https://wanstarge.github.io/dg/dg/PCB/晶振/</id>
             <content type="html">
                 &lt;h1 id=&quot;晶振&quot; tabindex=&quot;-1&quot;&gt;晶振&lt;/h1&gt;
 &lt;h2 id=&quot;总结&quot; tabindex=&quot;-1&quot;&gt;总结&lt;/h2&gt;
@@ -1156,6 +1242,6 @@ CG=CD,故代入公式有&lt;br /&gt;
 &lt;p&gt;有源晶振的输出引脚接 OSC_IN，OSC_OUT 悬空&lt;/p&gt;
 
             </content>
-            <link href="https://wanstarge.github.io/dg/dg/pcb/" >
+            <link href="https://wanstarge.github.io/dg/dg/PCB/晶振/" >
         </entry>
 </feed>
