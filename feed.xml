@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://wanstarge.github.io/dg">
-    <title>Digital Garden</title>
+    <title>万星阁</title>
     <link href="https://wanstarge.github.io/dg/feed.xml" rel="self" >
     <link href="https://wanstarge.github.io/dg" >
-    <updated>2025-04-11T03:13:30Z</updated>
+    <updated>2025-04-11T05:34:48Z</updated>
     <id>https://wanstarge.github.io/dg</id>
         <entry>
             <title>
                 镜像
                 
             </title>
-            <updated>2025-04-11T03:13:16Z</updated>
+            <updated>2025-04-11T05:34:20Z</updated>
             <id>https://wanstarge.github.io/dg/dg/系统/通用功能/镜像/</id>
             <content type="html">
                 &lt;p&gt;由于系统刚安装的时候无法识别 ntfs 格式的 U 盘，还是放到网络上会比较好找一点，同时也顺带整理了其他环境所需要的镜像&lt;/p&gt;
@@ -27,15 +27,15 @@ curl -o /etc/yum.repos.d/epel-archive-8.repo https://mirrors.aliyun.com/repo/epe
 &lt;ol&gt;
 &lt;li&gt;传统模式&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# 备份源文件 
+&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# 备份源文件
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 # 替换镜像链接
 sed -i &#39;s|http://archive.ubuntu.com/ubuntu|http://mirrors.aliyun.com/ubuntu|g&#39; /etc/apt/sources.list
 &lt;/code&gt;&lt;/pre&gt;
 &lt;ol start=&quot;2&quot;&gt;
-&lt;li&gt;DEB822 格式&lt;/li&gt;
+&lt;li&gt;DEB822 格式 &lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://wanstarge.github.io/dg/&quot;&gt;Ubuntu&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# 备份源文件 
+&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# 备份源文件
 sudo cp /etc/apt/sources.list.d/ubuntu.sources /etc/apt/sources.list.d/ubuntu.sources.bak
 # 替换镜像链接
 sed -i &#39;s|http://archive.ubuntu.com/ubuntu|http://mirrors.aliyun.com/ubuntu|g&#39; /etc/apt/sources.list.d/ubuntu.sources &#92;
@@ -65,8 +65,8 @@ bash rustup-install.sh
 &lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# 配置pip镜像
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 # 配置conda镜像
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/conda 
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/# 
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/conda
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/#
 # conda添加pytorch镜像
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/# for legacy win-64
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/peterjc123/conda
@@ -92,7 +92,7 @@ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
                 目录
                 
             </title>
-            <updated>2025-04-11T03:13:16Z</updated>
+            <updated>2025-04-11T05:34:20Z</updated>
             <id>https://wanstarge.github.io/dg/dg/</id>
             <content type="html">
                 &lt;h1 id=&quot;目录&quot; tabindex=&quot;-1&quot;&gt;目录&lt;/h1&gt;
@@ -1185,7 +1185,7 @@ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
                 晶振
                 
             </title>
-            <updated>2025-04-11T03:13:16Z</updated>
+            <updated>2025-04-11T05:34:20Z</updated>
             <id>https://wanstarge.github.io/dg/dg/PCB/晶振/</id>
             <content type="html">
                 &lt;h1 id=&quot;晶振&quot; tabindex=&quot;-1&quot;&gt;晶振&lt;/h1&gt;
