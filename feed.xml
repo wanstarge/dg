@@ -3,14 +3,14 @@
     <title>万星阁</title>
     <link href="https://wanstarge.github.io/dg/feed.xml" rel="self" >
     <link href="https://wanstarge.github.io/dg" >
-    <updated>2025-07-12T16:17:54Z</updated>
+    <updated>2025-07-12T16:17:57Z</updated>
     <id>https://wanstarge.github.io/dg</id>
         <entry>
             <title>
                 晶振
                 
             </title>
-            <updated>2025-07-12T16:17:40Z</updated>
+            <updated>2025-07-12T16:17:44Z</updated>
             <id>https://wanstarge.github.io/dg/dg/临时转存/笔记/百度网盘高速下载/PCB/晶振/</id>
             <content type="html">
                 &lt;h2 id=&quot;晶振&quot; tabindex=&quot;-1&quot;&gt;晶振&lt;/h2&gt;
@@ -74,7 +74,7 @@ CG=CD,故代入公式有&lt;br /&gt;
                 镜像
                 
             </title>
-            <updated>2025-07-12T16:17:40Z</updated>
+            <updated>2025-07-12T16:17:44Z</updated>
             <id>https://wanstarge.github.io/dg/dg/临时转存/知识管理理论/系统/通用功能/镜像/</id>
             <content type="html">
                 &lt;p&gt;由于系统刚安装的时候无法识别 ntfs 格式的 U 盘，还是放到网络上会比较好找一点，同时也顺带整理了其他环境所需要的镜像&lt;/p&gt;
@@ -156,7 +156,7 @@ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
                 目录
                 
             </title>
-            <updated>2025-07-12T16:17:40Z</updated>
+            <updated>2025-07-12T16:17:44Z</updated>
             <id>https://wanstarge.github.io/dg/dg/</id>
             <content type="html">
                 &lt;h2 id=&quot;目录&quot; tabindex=&quot;-1&quot;&gt;目录&lt;/h2&gt;
